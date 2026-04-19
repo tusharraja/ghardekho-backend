@@ -7,6 +7,11 @@ connectDB()
 
 const app = express()
 
+
+const userRouter = require("./routes/user.route")
+
+app.use("/api/users", userRouter)
+
 app.listen(3000, () => {
     console.log("Server is running on port 3000!")
 })
