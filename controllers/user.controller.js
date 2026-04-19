@@ -1,5 +1,5 @@
-export const testUserRoute =(req, res) => {
-    res.json({ message: "User route is workingzz!" })
-    
-}
+const testUserRoute = (req, res) => {
+  res.json({ message: "User route is workingzz!" });
+};
 
+module.exports = { testUserRoute };

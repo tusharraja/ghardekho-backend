@@ -6,11 +6,13 @@ dotenv.config()
 connectDB() 
 
 const app = express()
-
+app.use(express.json()) 
 
 const userRouter = require("./routes/user.route")
+const authRouter = require("./routes/auth.route")
 
 app.use("/api/users", userRouter)
+app.use("/api/auth", authRouter)
 
 app.listen(3000, () => {
     console.log("Server is running on port 3000!")
