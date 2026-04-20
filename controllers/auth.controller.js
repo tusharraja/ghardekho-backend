@@ -1,5 +1,6 @@
 const User = require("../models/user.model.js");
 const bcrypt = require("bcryptjs");
+const { errorHandler } = require("../utils/error.js");
 
 const signup = async (req, res, next) => {
   const { username, email, password } = req.body;
@@ -17,7 +18,9 @@ const signup = async (req, res, next) => {
   }
   catch(err){
     // res.status(500).json({ message: "Error creating user", error: err.message });
-    next(err);
+    const error = errorHandler(500, "Error creating user but this is by error handler")
+    error(err, req, res, next);
+   // next(err)
   }
 
 };
